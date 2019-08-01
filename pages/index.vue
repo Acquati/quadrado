@@ -1,7 +1,7 @@
 <template>
   <div v-if="is_data_fetched" class="container">
     <div class="info">
-      {{ windowX + 'x' + windowY }}
+      {{ windowX + 'x' + windowY + '=' + windowX * windowY }}
     </div>
 
     <div
@@ -52,7 +52,7 @@ export default {
 <style lang="scss" scoped>
 .container {
   margin: 0 auto;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -63,7 +63,10 @@ export default {
 
 .gridBlock {
   background-color: white;
-  border: 1px solid darkgrey;
+  border-top: 1px solid hsl(0, 0%, 90%);
+  border-right: 1px solid hsl(0, 0%, 80%);
+  border-bottom: 1px solid hsl(0, 0%, 70%);
+  border-left: 1px solid hsl(0, 0%, 60%);
   box-sizing: border-box;
 }
 
@@ -73,7 +76,7 @@ export default {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 24px;
   display: inline;
-  right: 10px;
-  bottom: 10px;
+  right: 3px;
+  bottom: 0px;
 }
 </style>
