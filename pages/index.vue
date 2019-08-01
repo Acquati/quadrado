@@ -3,6 +3,11 @@
     <div class="info">
       {{ windowX + 'x' + windowY + '=' + windowX * windowY }}
     </div>
+    <div class="github">
+      <a :href="'https://' + github" target="_blank" rel="GitHub Quadrado">
+        GitHub
+      </a>
+    </div>
 
     <div
       v-for="x in windowXY"
@@ -20,7 +25,8 @@ export default {
     return {
       is_data_fetched: false,
       isActive: false,
-      gridBoxSize: 10
+      gridBoxSize: 10,
+      github: 'github.com/Acquati/quadrado'
     }
   },
   computed: {
@@ -52,13 +58,11 @@ export default {
 <style lang="scss" scoped>
 .container {
   margin: 0 auto;
-  height: 100vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   align-content: center;
-  background-color: hsl(0, 0%, 50%);
 }
 
 .gridBlock {
@@ -78,5 +82,15 @@ export default {
   display: inline;
   right: 3px;
   bottom: 0px;
+}
+
+.github {
+  position: absolute;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  display: inline;
+  left: 5px;
+  bottom: 2px;
 }
 </style>

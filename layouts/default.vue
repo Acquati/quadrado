@@ -4,9 +4,10 @@
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 html {
   box-sizing: border-box;
+  background-color: hsl(0, 0%, 50%);
 }
 
 *,
