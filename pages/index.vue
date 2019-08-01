@@ -1,28 +1,33 @@
 <template>
   <div v-if="is_data_fetched" class="container">
-    <!-- <div class="info">
-      <div>{{ $vssWidth }} x {{ $vssHeight }}</div>
-    </div> -->
-    <div v-for="x in windowX" :key="`gridX-${x}`" class="gridBlock" />
+    <!-- <div class="info">{{ $vssWidth }} x {{ $vssHeight }}</div> -->
+    <div class="info">
+      {{ windowX }} x {{ windowY }}
+    </div>
+
+    <div v-for="x in windowXY" :key="`gridX-${x}`" class="gridBlock" />
   </div>
 </template>
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       is_data_fetched: false
     }
   },
   computed: {
-    windowX() {
-      return Math.floor(this.$vssWidth / 30) * Math.floor(this.$vssHeight / 30)
+    windowX () {
+      return Math.floor(this.$vssWidth / 30)
     },
-    windowY() {
+    windowY () {
       return Math.floor(this.$vssHeight / 30)
+    },
+    windowXY () {
+      return Math.floor(this.$vssWidth / 30) * Math.floor(this.$vssHeight / 30)
     }
   },
-  mounted() {
+  mounted () {
     this.is_data_fetched = true
   }
 }
@@ -48,12 +53,12 @@ export default {
 }
 
 .info {
-  position: relative;
-
-  div {
-    position: absolute;
-    display: inline;
-    color: red;
-  }
+  position: absolute;
+  color: red;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  display: inline;
+  left: 20px;
+  top: 13px;
 }
 </style>
