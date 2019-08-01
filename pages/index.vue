@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div v-if="is_data_fetched" class="container">
     <div style="display: inline-block;">
       {{ $vssWidth }}
     </div>
@@ -18,7 +18,12 @@
 <script>
 export default {
   data() {
-    return {}
+    return {
+      is_data_fetched: false
+    }
+  },
+  mounted() {
+    this.is_data_fetched = true
   }
 }
 </script>
