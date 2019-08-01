@@ -9,16 +9,25 @@ module.exports = {
   },
   extends: [
     '@nuxtjs',
-    'prettier',
     'prettier/vue',
     'plugin:prettier/recommended',
-    'plugin:nuxt/recommended'
+    'plugin:vue/recommended',
+    'plugin:nuxt/recommended',
+    'eslint:recommended'
   ],
   plugins: [
-    'prettier'
+    'prettier',
+    'vue'
   ],
   // add your custom rules here
   rules: {
-    'nuxt/no-cjs-in-config': 'off'
+    'nuxt/no-cjs-in-config': 'off',
+    'no-console': 1,
+    'semi': [2, 'never'],
+    'vue/max-attributes-per-line': 'off',
+    'prettier/prettier': ['error', { 'semi': false }]
+  },
+  globals: {
+    $nuxt: true
   }
 }
