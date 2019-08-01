@@ -1,30 +1,24 @@
 <template>
-  <div ref="container" class="container">
-    <div class="block">
-      {{ windowSize.x }}
+  <div class="container">
+    <div style="display: inline-block;">
+      {{ $vssWidth }}
     </div>
-    <div class="block">
-      {{ windowSize.y }}
+    <div style="display: inline-block;">
+      {{ $vssHeight }}
     </div>
+    <div />
+    <div
+      v-for="(i, index) in $vssWidth"
+      :key="`gridRow-${index}`"
+      class="gridRow"
+    />
   </div>
 </template>
 
 <script>
 export default {
   data() {
-    return {
-      windowSize: {
-        x: null,
-        y: null
-      }
-    }
-  },
-  mounted() {
-    // eslint-disable-next-line nuxt/no-env-in-hooks
-    if (process.client) {
-      this.windowSize.x = window.innerWidth
-      this.windowSize.y = window.innerHeight
-    }
+    return {}
   }
 }
 </script>
@@ -33,5 +27,12 @@ export default {
 .container {
   margin: 0 auto;
   min-height: 100vh;
+}
+
+.gridRow {
+  background-color: black;
+  height: 1px;
+  width: 1px;
+  display: inline-block;
 }
 </style>

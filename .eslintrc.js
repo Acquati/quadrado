@@ -16,7 +16,6 @@ module.exports = {
     'eslint:recommended'
   ],
   plugins: [
-    'prettier',
     'vue'
   ],
   // add your custom rules here

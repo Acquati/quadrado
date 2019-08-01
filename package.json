@@ -23,7 +23,8 @@
     "nuxt": "^2.0.0",
     "sass-loader": "^7.1.0",
     "stylus": "^0.54.5",
-    "stylus-loader": "^3.0.2"
+    "stylus-loader": "^3.0.2",
+    "vue-screen-size": "^1.0.0"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^1.0.1",
