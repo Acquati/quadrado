@@ -58,11 +58,11 @@ export default {
   justify-content: center;
   align-items: center;
   align-content: center;
-  background-color: gray;
+  background-color: hsl(0, 0%, 50%);
 }
 
 .gridBlock {
-  background-color: white;
+  background-color: hsl(0, 0%, 100%);
   border-top: 1px solid hsl(0, 0%, 90%);
   border-right: 1px solid hsl(0, 0%, 80%);
   border-bottom: 1px solid hsl(0, 0%, 70%);
