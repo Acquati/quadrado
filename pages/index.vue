@@ -1,33 +1,50 @@
 <template>
   <div v-if="is_data_fetched" class="container">
     <div class="info">
-      {{ windowX }} x {{ windowY }}
+      {{ windowX + 'x' + windowY }}
     </div>
 
-    <div v-for="x in windowXY" :key="`gridX-${x}`" class="gridBlock" />
+    <div
+      v-for="x in windowXY"
+      :key="`gridX-${x}`"
+      class="gridBlock"
+      :style="{ height: gridBoxSize + 'px', width: gridBoxSize + 'px' }"
+      @click.stop="handler"
+    />
   </div>
 </template>
 
 <script>
 export default {
-  data () {
+  data() {
     return {
-      is_data_fetched: false
+      is_data_fetched: false,
+      isActive: false,
+      gridBoxSize: 10
     }
   },
   computed: {
-    windowX () {
-      return Math.floor(this.$vssWidth / 30)
+    windowX() {
+      return Math.floor(this.$vssWidth / this.gridBoxSize)
     },
-    windowY () {
-      return Math.floor(this.$vssHeight / 30)
+    windowY() {
+      return Math.floor(this.$vssHeight / this.gridBoxSize)
     },
-    windowXY () {
-      return Math.floor(this.$vssWidth / 30) * Math.floor(this.$vssHeight / 30)
+    windowXY() {
+      return (
+        Math.floor(this.$vssWidth / this.gridBoxSize) *
+        Math.floor(this.$vssHeight / this.gridBoxSize)
+      )
     }
   },
-  mounted () {
+  mounted() {
     this.is_data_fetched = true
+  },
+  methods: {
+    handler(event) {
+      this.gridBoxSize += 3
+      event.target.style.backgroundColor = 'blue'
+    }
   }
 }
 </script>
@@ -41,14 +58,13 @@ export default {
   justify-content: center;
   align-items: center;
   align-content: center;
+  background-color: gray;
 }
 
 .gridBlock {
   background-color: white;
-  border: 1px solid gray;
+  border: 1px solid darkgrey;
   box-sizing: border-box;
-  height: 30px;
-  width: 30px;
 }
 
 .info {
@@ -57,7 +73,7 @@ export default {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 24px;
   display: inline;
-  left: 20px;
-  top: 13px;
+  right: 10px;
+  bottom: 10px;
 }
 </style>
