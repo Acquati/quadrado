@@ -1,6 +1,5 @@
 <template>
   <div v-if="is_data_fetched" class="container">
-    <!-- <div class="info">{{ $vssWidth }} x {{ $vssHeight }}</div> -->
     <div class="info">
       {{ windowX }} x {{ windowY }}
     </div>
