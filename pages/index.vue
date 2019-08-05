@@ -25,7 +25,7 @@ export default {
     return {
       is_data_fetched: false,
       isActive: false,
-      gridBoxSize: 10,
+      gridBoxSize: 30,
       github: 'github.com/Acquati/quadrado'
     }
   },
@@ -48,8 +48,10 @@ export default {
   },
   methods: {
     handler(event) {
-      this.gridBoxSize += 3
-      event.target.style.backgroundColor = 'blue'
+      // this.gridBoxSize += 3
+      // prettier-ignore
+      event.target.style.backgroundColor =
+        '#' + ((Math.random() * 0xFFFFFF) << 0).toString(16)
     }
   }
 }
